@@ -56,6 +56,7 @@ public class DungeonDartDBHandler extends SQLiteOpenHelper {
     // added attributes
     public static final String COLUMN_SCORES_NOPOWERUPS = "number_powerups";
     public static final String COLUMN_SCORES_NOPLAYS = "number_plays";
+    public static final String COLUMN_SCORES_WIN = "win";
     // added foreign keys
     public static final String COLUMN_USERID_FK = "user_id";
 
@@ -120,6 +121,7 @@ public class DungeonDartDBHandler extends SQLiteOpenHelper {
                 + COLUMN_MAP_ID + " INTEGER," + COLUMN_SCORES_SCORE + " INTEGER,"
                 + COLUMN_SCORES_TIME + " TEXT," + COLUMN_SCORES_NOPOWERUPS + " INTEGER,"
                 + COLUMN_SCORES_NOPLAYS + " INTEGER,"
+                + COLUMN_SCORES_WIN + " INTEGER,"
                 + " PRIMARY KEY (" + COLUMN_SCORES_ID + "), "
                 + " FOREIGN KEY (" + COLUMN_USER_ID + ") REFERENCES " + TABLE_USERS
                 + "(" + COLUMN_USER_ID + "),"
@@ -142,6 +144,7 @@ public class DungeonDartDBHandler extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_MAPS);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_TILES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERMAPSCORES);
         //db.execSQL("DROP TABLE IF EXISTS " + TABLE_STATS);
 
         onCreate(db);
@@ -206,6 +209,7 @@ public class DungeonDartDBHandler extends SQLiteOpenHelper {
         values.put(COLUMN_SCORES_TIME, score.getTime());
         values.put(COLUMN_SCORES_NOPOWERUPS, score.getNoPowerUps());
         values.put(COLUMN_SCORES_NOPLAYS, score.getNoPlays());
+        values.put(COLUMN_SCORES_WIN, score.getWin());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -385,6 +389,7 @@ public class DungeonDartDBHandler extends SQLiteOpenHelper {
             usermapscore.setTime(cursor.getString(4));
             usermapscore.setNoPowerUps(Integer.parseInt(cursor.getString(5)));
             usermapscore.setNoPlays(Integer.parseInt(cursor.getString(6)));
+            usermapscore.setWin(Integer.parseInt(cursor.getString(7)));
         }
         else {
             usermapscore = null;
