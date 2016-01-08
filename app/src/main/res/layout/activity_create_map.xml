@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.grizzlypenguins.dungeondart.Activities.CreateMapActivity">
+
+    <fragment
+        android:layout_width="445dp"
+        android:layout_height="match_parent"
+        android:name="android.support.v4.app.ListFragment"
+        android:id="@+id/listFragment"
+        android:layout_alignParentTop="false"
+        android:layout_alignParentBottom="false"
+        android:layout_gravity="center_horizontal|bottom" />
+
+    <ListView
+        android:layout_width="117dp"
+        android:layout_height="323dp"
+        android:id="@+id/tileListView"
+        android:layout_gravity="left|center_vertical"
+        android:visibility="invisible" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Right"
+        android:id="@+id/moveRight"
+        android:layout_gravity="right|center_vertical"
+        android:layout_alignTop="@+id/moveLleft" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="left"
+        android:id="@+id/moveLleft"
+        android:layout_gravity="center_vertical"
+        android:layout_alignParentTop="false"
+        android:layout_marginTop="33dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="UP"
+        android:id="@+id/moveUp"
+        android:layout_alignParentTop="false"
+        android:layout_alignRight="@+id/moveDown"
+        android:layout_above="@+id/moveRight" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DOWN"
+        android:id="@+id/moveDown"
+        android:layout_below="@+id/moveLleft" />
+
+    <SurfaceView
+        android:layout_width="306dp"
+        android:layout_height="match_parent"
+        android:id="@+id/mapSurfaceView"
+        android:layout_gravity="center_horizontal|top" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Select Tile"
+        android:id="@+id/selectTile"
+        android:layout_gravity="right|top"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="false"
+        android:layout_alignParentTop="true" />
+
+</RelativeLayout>
